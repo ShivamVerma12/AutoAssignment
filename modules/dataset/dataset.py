@@ -2,7 +2,7 @@ from selenium.webdriver.common.by import By
 
 
 def login(browser, email, password):
-    browser.get("http://app.eks-cicd-19054.cicd.cnvrg.me")
+    browser.get("http://app.aks-cicd-19067.cicd.cnvrg.me/")
     emailaddress_field = browser.find_element(By.NAME, "email")
     password_field = browser.find_element(By.NAME, "password")
     login_button = browser.find_element(By.CSS_SELECTOR, "[type='submit']")
@@ -24,16 +24,14 @@ def create_dataset(cnvrg, dataset_name):
 
 
 def upload_file(cnvrg, dataset_name, file_name):
-    # try:
-    #     dataset = cnvrg.datasets.get(dataset_name)
-    #     dataset.put_files(paths=[file_name])
-    #     if file_name == "":
-    #         raise FileNotFoundError
-    #
-    # except FileNotFoundError:
-    #     return FileNotFoundError
-    dataset = cnvrg.datasets.get(dataset_name)
-    dataset.put_files(paths=[file_name])
+    try:
+        dataset = cnvrg.datasets.get(dataset_name)
+        ds = dataset.put_files(paths=[file_name])
+        if ds in None:
+            raise Exception
+
+    except Exception as e:
+        return e
 
 
 def verify_file_name(cnvrg, file_name):
@@ -61,10 +59,13 @@ def remove_file(cnvrg, filename, dataset_name):
     dataset.remove_files(paths=[filename],
                          message='This will delete everything!')
 
+
 def upload_files_wrong_format(cnvrg, dataset_name, file1, file2):
     try:
         dataset = cnvrg.datasets.get(dataset_name)
-        # dataset.put_files(paths=file1, file2)
+        ds = dataset.put_files(paths=[file1, file2])
+        if ds in None:
+            raise Exception
 
     except Exception as e:
         return e

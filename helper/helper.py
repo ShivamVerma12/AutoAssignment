@@ -6,7 +6,7 @@ from selenium.webdriver.chrome.service import Service
 
 @pytest.fixture()
 def cnvrg():
-    cnvrgvar = Cnvrg(domain="http://app.eks-cicd-19054.cicd.cnvrg.me"
+    cnvrgvar = Cnvrg(domain="http://app.aks-cicd-19067.cicd.cnvrg.me/"
                      , email="test@mailinator.com",
                      password="123456",
                      )
@@ -20,5 +20,4 @@ def browser():
     options.add_experimental_option("detach", True)
     service = Service(chromedriver)
     driver = webdriver.Chrome(service=service, options=options)  # instance of Webdriver
-    driver.get("http://app.eks-cicd-19054.cicd.cnvrg.me/")
     yield driver
