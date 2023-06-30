@@ -6,4 +6,9 @@ from tests.test_upload_file_wrong import *
 from tests.test_upload_files import *
 from tests.test_remove_file import *
 from tests.test_ulpoad_files_wrong_format import *
-scenarios('feature_file/datasets.feature')
+from tests.test_experiment import *
+from tests.test_workspace import *
+
+# scenarios('feature_file/datasets.feature')
+scenarios('feature_file/experiment.feature')
+# scenarios('feature_file/workspace.feature')
