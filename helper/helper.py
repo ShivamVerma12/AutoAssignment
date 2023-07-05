@@ -2,6 +2,7 @@ import pytest
 from cnvrgv2 import Cnvrg
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
+import os
 
 
 @pytest.fixture()
