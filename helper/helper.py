@@ -6,7 +6,7 @@ from selenium.webdriver.chrome.service import Service
 
 @pytest.fixture()
 def cnvrg():
-    cnvrgvar = Cnvrg(domain="http://app.eks-cicd-19156.cicd.cnvrg.me/"
+    cnvrgvar = Cnvrg(domain=url
                      , email="test@mailinator.com",
                      password="123456",
                      )
