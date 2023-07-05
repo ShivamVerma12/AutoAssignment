@@ -1,5 +1,5 @@
 allure-pytest==2.12.0
-allure-combine
+allure-combine==1.0.11
 appdirs==1.4.4
 async-generator==1.10
 attrs==23.1.0
