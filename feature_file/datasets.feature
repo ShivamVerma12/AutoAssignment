@@ -20,6 +20,6 @@ Feature: Test Dataset
    # When User uploads 2 files "test.py" and "demo.txt" in dataset "MyDataset"
     #Then User verifies by file count in dataset "MyDataset"
 
-  #Scenario: User Uploads 2 files in dataset in wrong format
-   # When User uploads 2 files "test.py" and "demo1.txt" in dataset "MyDataset" n wrong format
-    #Then User verifies by the exception raised "TypeError("argument of type 'NoneType' is not iterable")"
+  Scenario: User Uploads 2 files in dataset in wrong format
+   When User uploads 2 files "test.py" and "demo1.txt" in dataset "MyDataset" n wrong format
+   Then User verifies by the exception raised "TypeError("argument of type 'NoneType' is not iterable")"
