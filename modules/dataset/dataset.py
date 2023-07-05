@@ -1,5 +1,4 @@
 from selenium.webdriver.common.by import By
-from azure.storage.blob import BlobServiceClient
 
 def login(browser, email, password):
     browser.get(os.environ.get("URL"))
