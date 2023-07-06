@@ -4,9 +4,9 @@ from modules.workspaces.workspaces import *
 from modules.experiment.experiment import *
 
 
-@given(parsers.parse('User login with login credentials email "{email}" and password "{password}"'))
-def step_def(browser, email, password):
-    login(browser, email, password)
+# @given(parsers.parse('User login with login credentials email "{email}" and password "{password}"'))
+# def step_def(browser, email, password):
+#     login(browser, email, password)
 
 
 @when(parsers.parse('User creates a project "{project_name}"'))
