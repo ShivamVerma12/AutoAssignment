@@ -4,13 +4,13 @@ import pytest
 from cnvrgv2 import Cnvrg
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 
-load_dotenv()
+# load_dotenv()
 
 @pytest.fixture()
 def cnvrg():
-    cnvrgvar = Cnvrg(domain=os.environ.get('URL'),
+    cnvrgvar = Cnvrg(domain=os.environ.get("URL"),
                      email="test@mailinator.com",
                      password="123456",
                      )
