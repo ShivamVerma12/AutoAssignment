@@ -1,3 +1,5 @@
+import os
+
 import pytest
 from cnvrgv2 import Cnvrg
 from selenium import webdriver
@@ -6,8 +8,8 @@ from selenium.webdriver.chrome.service import Service
 
 @pytest.fixture()
 def cnvrg():
-    cnvrgvar = Cnvrg(domain="http://app.aks-cicd-19067.cicd.cnvrg.me/"
-                     , email="test@mailinator.com",
+    cnvrgvar = Cnvrg(domain=os.environ.get("URL"),
+                     email="test@mailinator.com",
                      password="123456",
                      )
     yield cnvrgvar

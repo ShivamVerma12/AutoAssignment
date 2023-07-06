@@ -1,8 +1,8 @@
 from selenium.webdriver.common.by import By
-
+import os
 
 def login(browser, email, password):
-    browser.get("http://app.aks-cicd-19067.cicd.cnvrg.me/")
+    browser.get(os.environ.get("URL"))
     emailaddress_field = browser.find_element(By.NAME, "email")
     password_field = browser.find_element(By.NAME, "password")
     login_button = browser.find_element(By.CSS_SELECTOR, "[type='submit']")

@@ -14,18 +14,22 @@ global slug
 def create_project(cnvrg, project_name):
     # myproj = cnvrg.projects.create(project_name)
     try:
-        # myproj = cnvrg.projects.get(project_name)
+
+
+        # myproj = cnvrg.projects.create(project_name)
+
+    # myproj = cnvrg.projects.get(project_name)
         if cnvrg.projects.get(project_name):
             print("Already present")
             return
-    except CnvrgHttpError:
-        myproj = cnvrg.projects.create(project_name)
-        print(myproj)
-
-    # except Exception as e:
+    # except CnvrgHttpError:
     #     myproj = cnvrg.projects.create(project_name)
     #     print(myproj)
-    #     print(e)
+
+    except Exception as e:
+        # myproj = cnvrg.projects.create(project_name)
+        # print(myproj)
+        print(e)
 
 
 def upload_file(cnvrg, file_name, project_name):
