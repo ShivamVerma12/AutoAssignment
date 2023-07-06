@@ -1,12 +1,12 @@
 Feature: Test Dataset
-  #Scenario: User create dataset and verify title name
-  # Given User login with login credentials email "test@mailinator.com" nad password "123456"
-   #When User create dataset with name "MyDataset"
-   #Then User verify title name of dataset "MyDataset"
+  Scenario: User create dataset and verify title name
+   Given User login with login credentials email "test@mailinator.com" nad password "123456"
+   When User create dataset with name "MyDataset"
+   Then User verify title name of dataset "MyDataset"
 
-  #Scenario: User upload file in dataset
-  #  When User upload file "requirements.txt" in dataset "MyDataset"
-   # Then User verify file name uploaded in dataset "requirements.txt"
+  Scenario: User upload file in dataset
+    When User upload file "requirements.txt" in dataset "MyDataset"
+    Then User verify file name uploaded in dataset "requirements.txt"
 
 #  Scenario: User Removes a file
  #   When User removes a file "requirements.txt" from dataset "MyDataset"
