@@ -1,18 +1,18 @@
 from selenium.webdriver.common.by import By
 
 
-def login(browser, email, password):
-    browser.get(os.environ.get("URL"))
-    emailaddress_field = browser.find_element(By.NAME, "email")
-    password_field = browser.find_element(By.NAME, "password")
-    login_button = browser.find_element(By.CSS_SELECTOR, "[type='submit']")
+# def login(browser, email, password):
+#     browser.get(os.environ.get("URL"))
+#     emailaddress_field = browser.find_element(By.NAME, "email")
+#     password_field = browser.find_element(By.NAME, "password")
+#     login_button = browser.find_element(By.CSS_SELECTOR, "[type='submit']")
 
-    # Enter the login credentials
-    emailaddress_field.send_keys(email)
-    password_field.send_keys(password)
+#     # Enter the login credentials
+#     emailaddress_field.send_keys(email)
+#     password_field.send_keys(password)
 
-    # Click the login button to login
-    login_button.click()
+#     # Click the login button to login
+#     login_button.click()
 
 
 def create_dataset(cnvrg, dataset_name):
