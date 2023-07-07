@@ -22,3 +22,4 @@ def browser():
     service = Service(chromedriver)
     driver = webdriver.Chrome(service=service, options=options)  # instance of Webdriver
     yield driver
+
