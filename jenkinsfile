@@ -1,0 +1,37 @@
+pipeline {
+    agent any
+      environment {
+    domain = "http://app.aks-cicd-19205.cicd.cnvrg.me/"
+    }
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: "Experiment_Workspace" , credentialsId: '9b528544-fd2e-4fe3-89d2-51681a8d6a51', url: 'https://github.com/ShivamVerma12/AutoAssignment.git'
+            }   
+        }
+
+
+        stage('Run Code') {
+            steps {               
+                
+                sh 'python3 -m  pytest test.py'
+                        
+            }
+            
+        }
+        
+        stage('Generate Allure'){
+            steps {
+            
+                sh 'python3 -m pytest --alluredir=./allure_final test.py'
+
+                allure includeProperties: false, jdk: '', results: [[path: 'allure_final']]
+  
+            }
+        }
+
+        
+    
+        }
+    }
+
