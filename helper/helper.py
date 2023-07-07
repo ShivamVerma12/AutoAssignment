@@ -4,9 +4,7 @@ import pytest
 from cnvrgv2 import Cnvrg
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
-# from dotenv import load_dotenv
 
-# load_dotenv()
 
 @pytest.fixture()
 def cnvrg():
