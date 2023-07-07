@@ -6,7 +6,6 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 
 
-
 @pytest.fixture()
 def cnvrg():
     cnvrgvar = Cnvrg(domain=os.environ.get("domain"),
