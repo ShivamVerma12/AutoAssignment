@@ -12,4 +12,4 @@ def verify_workspace(cnvrg, workspace_name, project_name):
         return True
     else:
         return False
-        
+
