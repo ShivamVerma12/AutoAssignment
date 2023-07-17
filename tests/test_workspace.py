@@ -5,7 +5,7 @@ from modules.workspaces.workspaces import *
 from modules.experiment.experiment import *
 
 
-@pytest.mark.usefixtures("log_on_failure")
+
 @given(parsers.parse('User login with login credentials email "{email}" and password "{password}"'))
 def step_def(browser, email, password, log_on_failure):
     login(browser, email, password)

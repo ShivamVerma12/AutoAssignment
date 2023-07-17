@@ -2,9 +2,9 @@ from pytest_bdd import when, then, parsers, given
 from modules.dataset.dataset import *
 
 
-@given(parsers.parse('User login with login credentials email "{email}" nad password "{password}"'))
-def step_def(browser, email, password):
-    login(browser, email, password)
+# @given(parsers.parse('User login with login credentials email "{email}" nad password "{password}"'))
+# def step_def(browser, email, password):
+#     login(browser, email, password)
 
 
 @when(parsers.parse('User create dataset with name "{dataset_name}"'))

@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
 import os
 
+
 def login(browser, email, password):
     browser.get(os.environ.get("URL"))
     emailaddress_field = browser.find_element(By.NAME, "email")

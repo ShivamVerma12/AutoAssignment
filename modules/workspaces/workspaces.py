@@ -9,6 +9,7 @@ def verify_workspace(cnvrg, workspace_name, project_name):
     myproj = cnvrg.projects.get(project_name)
     workspace = myproj.workspaces.get(workspace_name)
     if workspace:
-        return False
-    else:
         return True
+    else:
+        return False
+
