@@ -8,7 +8,9 @@ from tests.test_remove_file import *
 from tests.test_ulpoad_files_wrong_format import *
 from tests.test_experiment import *
 from tests.test_workspace import *
+from tests.test_book_ticket import *
 
 # scenarios('feature_file/datasets.feature')
 # scenarios('feature_file/experiment.feature')
-scenarios('feature_file/workspace.feature')
+# scenarios('feature_file/workspace.feature')
+scenarios('feature_file/bus_ticket.feature')
