@@ -1,7 +1,6 @@
 import string
 import random
 
-from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.ui import WebDriverWait
@@ -9,12 +8,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from datetime import date, timedelta
 import time
 import pyautogui
-
-
-def click_on_elem(browser, by_locator: object, sec=10):
-    element = WebDriverWait(browser, sec).until(EC.element_to_be_clickable(by_locator))
-    element.click()
-    return element
 
 
 def open_url(browser):
@@ -44,23 +37,22 @@ def select_departure(browser, place):
     # select = click_on_elem(browser, locator, 10)
     select = WebDriverWait(browser, 10).until(EC.element_to_be_clickable(locator))
     select.click()
-    time.sleep(1)
+    # time.sleep(1)
     select.send_keys(place)
-    time.sleep(2)
+    time.sleep(1)
     pyautogui.press('down')
     pyautogui.press('enter')
-
 
 
 def select_arrival(browser, place):
     select = WebDriverWait(browser, 10).until(
         EC.presence_of_element_located((By.CSS_SELECTOR, "#goingTo")))
     select.click()
-    time.sleep(1)
+    # time.sleep(1)
     select.send_keys(place)
-    time.sleep(2)
+    time.sleep(1)
     pyautogui.press('down')
-    time.sleep(2)
+    time.sleep(1)
     pyautogui.press('enter')
 
 
@@ -95,18 +87,16 @@ def first_result(browser):
 
 
 def book_seat(browser):
-    time.sleep(3)
+    time.sleep(2)
 
     vacant_seats = browser.find_elements(By.XPATH,"//span[contains(@class, 'Seating') and not(contains(@class, 'occupied'))]")
     print(vacant_seats)
     print(len(vacant_seats))
-    time.sleep(2)
+    time.sleep(1)
 
     vacant_seats[0].click()
     vacant_seats[4].click()
 
-    # else:
-    #     print("No Vacant seat")
 
 
 def step(browser):
@@ -130,7 +120,7 @@ def click_on_login(browser):
 
 
 def login(browser, email, mobil):
-    time.sleep(2)
+    time.sleep(1)
     mail = WebDriverWait(browser, 10).until(
         EC.presence_of_element_located((By.XPATH, "//input[@id='emailLogin']")))
     mail.send_keys(email)
@@ -187,11 +177,6 @@ def fill_details(browser, mobil, place, country):
     age1 = WebDriverWait(browser, 10).until(
         EC.presence_of_element_located((By.XPATH, "(//input[@placeholder='Age'])[1]")))
     age1.send_keys("23")
-
-    time.sleep(2)
-    # passenger2 = WebDriverWait(browser, 10).until(
-    #     EC.presence_of_element_located((By.XPATH, "//div[@class='col-md-9']//div[1]//div[4]//input[1]")))
-    # passenger2.send_keys(res)
 
     gender2 = WebDriverWait(browser, 10).until(
         EC.presence_of_element_located((By.XPATH, "(//select[@name='select'])[2]")))
