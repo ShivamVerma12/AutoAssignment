@@ -58,15 +58,21 @@ def run(browser):
 
 
 def verify(browser):
-    # status = WebDriverWait(browser, 10).until(
-    #     EC.presence_of_element_located((By.XPATH, "//td[@data-column='state'][1]"))).text
+    status = WebDriverWait(browser, 10).until(
+        EC.presence_of_element_located((By.XPATH, "//td[@data-column='state'][1]"))).text
 
+    stat = False
     while True:
+        if status.lower() == 'debug':
+            stat = True
+            break
+        elif status.lower() == 'error':
+            stat = False
+            break
+
+        # If the status is neither 'debug' nor 'error', continue waiting and update the status
         status = WebDriverWait(browser, 10).until(
             EC.presence_of_element_located((By.XPATH, "//td[@data-column='state'][1]"))).text
 
-        if status.lower == 'debug':
-            return True
-        elif status.lower == 'error':
-            return False
+    assert stat
 
