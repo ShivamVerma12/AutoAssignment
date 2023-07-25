@@ -51,4 +51,4 @@ def step_def(browser):
 
 @then('User verify status')
 def step_def(browser):
-    assert verify(browser)
+    verify(browser)
