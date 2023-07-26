@@ -7,6 +7,7 @@ import pyautogui
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.common.exceptions import ElementNotInteractableException, TimeoutException
 
+
 def ds_task(browser):
     task = WebDriverWait(browser, 10).until(
         EC.element_to_be_clickable((By.XPATH, "//input[@placeholder='New Task']")))
@@ -22,33 +23,25 @@ def ds_task(browser):
 
 
 def connect(browser):
-    import pdb
-    pdb.set_trace()
-    try:
-        # Wait for the source and destination SVG elements to be clickable
-        source = WebDriverWait(browser, 10).until(
-            EC.element_to_be_clickable((By.XPATH, "(//div[@class ='connector-wrapper output'])[2]")))
+    ds = WebDriverWait(browser, 10).until(
+        EC.presence_of_element_located((By.XPATH, "//div[@class='operator dataload']")))
+    time.sleep(2)
+    action_chains = ActionChains(browser)
+    action_chains.click_and_hold(ds).move_by_offset(0, 150).release().perform()
 
-        destination = WebDriverWait(browser, 10).until(
-            EC.element_to_be_clickable((By.XPATH, "(//div[@class ='connector-wrapper input'])[1]")))
+    source = WebDriverWait(browser, 10).until(
+        EC.element_to_be_clickable((By.XPATH, "(//div[@ class='connector-point'])[4]")))
 
-        # Perform the click action on the source SVG element
-        source.click()
+    source.click()
+    time.sleep(2)
+    task = WebDriverWait(browser, 10).until(
+        EC.presence_of_element_located((By.XPATH, "//div[@class ='operator preprocessing']")))
+    action_chains.move_to_element(task).perform()
+    time.sleep(2)
 
-        # Create an ActionChains object to perform mouse actions
-        action_chains = ActionChains(browser)
+    destination = WebDriverWait(browser, 10).until(
+        EC.element_to_be_clickable((By.XPATH, "(//div[@ class='connector-point'])[1]")))
+    time.sleep(2)
+    action_chains.drag_and_drop(source, destination).perform()
+    destination.click()
 
-        try:
-            # Drag and drop the source SVG element to the destination SVG element
-            action_chains.drag_and_drop(source, destination).perform()
-        except ElementNotInteractableException:
-            destination.click()
-
-    except TimeoutException as e:
-        print("Timeout Exception: ", e)
-
-    except Exception as e:
-        print("Error: ", e)
-
-    # ( //div[@ class ='connector-point'])[1]
-    # ( // div[@ class ='connector-point'])[1]
