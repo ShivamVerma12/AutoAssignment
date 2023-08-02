@@ -5,7 +5,7 @@ from cnvrgv2 import Cnvrg
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 import os
-
+from playwright.sync_api import sync_playwright
 
 @pytest.fixture()
 def cnvrg():
@@ -25,3 +25,13 @@ def browser():
     driver = webdriver.Chrome(service=service, options=options)  # instance of Webdriver
     yield driver
 
+
+@pytest.fixture
+def browser_context():
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=False)
+        context = browser.new_context(no_viewport=True)
+        page = context.new_page()
+        yield page
+        context.close()
+        browser.close()
