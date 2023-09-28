@@ -1,12 +1,8 @@
 pipeline {
-    agent any
-      environment {
-    domain = "http://app.aks-cicd-19205.cicd.cnvrg.me/"
-    }
     stages {
         stage('Checkout') {
             steps {
-                git branch: "master" , credentialsId: '9b528544-fd2e-4fe3-89d2-51681a8d6a51', url: 'https://github.com/ShivamVerma12/AutoAssignment.git'
+                git branch: "master", url: 'https://github.com/ShivamVerma12/AutoAssignment.git'
             }   
         }
 
