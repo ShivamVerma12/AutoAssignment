@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: "dataset" , credentialsId: '9b528544-fd2e-4fe3-89d2-51681a8d6a51', url: 'https://github.com/ShivamVerma12/AutoAssignment.git'
+                git branch: "master" , credentialsId: '9b528544-fd2e-4fe3-89d2-51681a8d6a51', url: 'https://github.com/ShivamVerma12/AutoAssignment.git'
             }   
         }
 
