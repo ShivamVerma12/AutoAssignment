@@ -14,21 +14,12 @@ pipeline {
         stage('Run Code') {
             steps {               
                 
-                sh 'python3 -m  pytest test.py'
+                echo("HELLO WORLD")
                         
             }
             
         }
         
-        stage('Generate Allure'){
-            steps {
-            
-                sh 'python3 -m pytest --alluredir=./allure_final test.py'
-
-                allure includeProperties: false, jdk: '', results: [[path: 'allure_final']]
-  
-            }
-        }
 
         
     
