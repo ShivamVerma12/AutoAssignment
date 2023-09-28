@@ -10,11 +10,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Trigger Jenkins
-        run: |
-          curl -X POST -u Shivam_Verma:'1165882fd521cb0b773c1e5f538e441948' 'http://localhost:8080'
       - name: checkout repo content
         uses: actions/checkout@v2 # checkout the repository content
+      - name: Trigger Jenkins
+        run: |
+          curl -X POST -u Shivam_Verma:'1165882fd521cb0b773c1e5f538e441948' 'http://localhost:8080/job/demo2/build'
+
       - name: setup python
         uses: actions/setup-python@v4
         with:
