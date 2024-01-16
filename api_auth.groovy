@@ -2,12 +2,6 @@
 
 pipeline {
     agent any
-    parameters {
-        choice(name: 'WORKSPACE', choices: ['API-AUT'], description: 'Select Workspace')
-    }
-    environment {
-        WORKSPACE = "${params.WORKSPACE ?: 'API-AUT'}"
-    }
     stages {
         stage('Create Token and upload report'){
             steps{
