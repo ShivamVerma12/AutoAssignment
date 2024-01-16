@@ -14,28 +14,28 @@ pipeline {
                 deleteDir()
             }
         }
-        // stage('Run Build CICD') {
-        //     when {
-        //         expression { params.WORKSPACE == 'API-AUT' }
-        //     }
-        //     steps {
-        //         script {
-        //             // Trigger the 'CICD' job without parameters and wait for completion
-        //             def cicdJob = build(job: 'CICD', wait: true)
+        stage('Run Build CICD') {
+            when {
+                expression { params.WORKSPACE == 'API-AUT' }
+            }
+            steps {
+                script {
+                    // Trigger the 'CICD' job without parameters and wait for completion
+                    // def cicdJob = build(job: 'CICD', wait: true)
 
-        //             if (cicdJob.resultIsBetterOrEqualTo('SUCCESS')) {
-        //                 // Get the build number of the 'CICD' job
-        //                 def buildNumber = cicdJob.number
+                    // if (cicdJob.resultIsBetterOrEqualTo('SUCCESS')) {
+                    //     // Get the build number of the 'CICD' job
+                        def buildNumber = "20909"
 
-        //                 // Set the cicd_number parameter to pass it to the next stage
-        //                 cicd_number = "${buildNumber}"
+                        // Set the cicd_number parameter to pass it to the next stage
+                        cicd_number = "${buildNumber}"
 
-        //             } else {
-        //                 error("Failed to build 'CICD' job")
-        //             }
-        //         }
-        //     }
-        // }
+                    } else {
+                        error("Failed to build 'CICD' job")
+                    }
+                }
+            }
+        }
         stage('Prepare Environment and Run API-AUT Tests') {
             when {
                 expression { params.WORKSPACE == 'API-AUT' }
